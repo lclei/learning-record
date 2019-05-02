@@ -86,11 +86,11 @@ void __wrap_free(void *ptr){
  makefile               
 ```make
 intl: int.o mymalloc.o                                             
-    gcc -Wl,--wrap,malloc -Wl,--wrap,free int.o mymalloc.o -o intl 
+    gcc -Wl,--wrap,malloc -Wl,--wrap,free int.o mymalloc.o -o intl
 int.o: int.c                                                       
     gcc -c int.c                                                   
 mymalloc.o: mymalloc.c                                             
-    gcc -DLINKTIME -c mymalloc.c 
+    gcc -DLINKTIME -c mymalloc.c
 ```
 结果
 >[root@linuxkit-00155ddc0103 stub]# ./intl
@@ -143,17 +143,17 @@ intr: int.c
     gcc int.c -o intr
  ```
  结果
->[root@linuxkit-00155ddc0103 stub]# LD_PRELOAD="./mymalloc.so" ./intr \
->malloc(32) = 0x11eb010 \
+>[root@linuxkit-00155ddc0103 stub]# LD_PRELOAD="./mymalloc.so" ./intr  
+>malloc(32) = 0x11eb010  
 >free(0x11eb010)
 
 甚至还可以对其他程序应用
->[root@linuxkit-00155ddc0103 stub]# LD_PRELOAD="./mymalloc.so" date \
-malloc(34) = 0x2225010\
-malloc(10) = 0x2225040\
-malloc(15) = 0x2225060\
-malloc(568) = 0x2225080\
-malloc(29) = 0x22252c0\
-free(0x2225080)\
-malloc(20) = 0x2225080\
+>[root@linuxkit-00155ddc0103 stub]# LD_PRELOAD="./mymalloc.so" date  
+malloc(34) = 0x2225010  
+malloc(10) = 0x2225040  
+malloc(15) = 0x2225060  
+malloc(568) = 0x2225080  
+malloc(29) = 0x22252c0  
+free(0x2225080)  
+malloc(20) = 0x2225080  
 Thu Apr 25 12:53:41 UTC 2019
