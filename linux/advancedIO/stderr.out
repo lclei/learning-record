@@ -1,0 +1,2 @@
+read 500000 vytes
+nwrite = 500000, errno = 0
