@@ -14,7 +14,7 @@ int main(void){
   ntowrite = read(STDIN_FILENO, buf, sizeof(buf));
   fprintf(stderr, "read %d bytes\n", ntowrite);
 
-  set_fl(STDIN_FILENO, O_NONBLOCK);
+  set_fl(STDOUT_FILENO, O_NONBLOCK);
 
   ptr = buf;
   while(ntowrite > 0 ){
