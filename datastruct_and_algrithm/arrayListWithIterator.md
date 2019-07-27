@@ -10,7 +10,7 @@ bidirectional_iterator_tag 对应 LegacyBidirectionalIterator 。
 random_access_iterator_tag 对应 LegacyRandomAccessIterator
 
 ```cpp
-emplate<class T>
+template<class T>
 class arrayList : public linearList<T>
 {
    public:
