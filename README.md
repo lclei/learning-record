@@ -17,3 +17,5 @@ I record my code here in learning.
 ## cpp
 
 [polymorphism](cpp/polymorphism.md)
+
+[lambda](cpp/lambda.md)
