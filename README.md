@@ -19,3 +19,5 @@ I record my code here in learning.
 [polymorphism](cpp/polymorphism.md)
 
 [lambda](cpp/lambda.md)
+
+[bind](cpp/bind.md)
