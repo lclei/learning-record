@@ -289,9 +289,43 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>
 <p>inserter<br>
 &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;insert&#x7684;&#x8FED;&#x4EE3;&#x5668;<br>
-&#x82E5;</p>
+&#x82E5;it&#x662F;&#x4E00;&#x4E2A;inserter&#x5219;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;</p>
 </li>
 </ul>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token operator">*</span>it <span class="token operator">=</span> val<span class="token punctuation">;</span>
+</pre><p>&#x4E0E;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>it = c.insert(it, val);
+++it;
+</code></pre><p>&#x6548;&#x679C;&#x4E00;&#x6837;<br>
+&#x793A;&#x4F8B;:</p>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;list&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iterator&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm&gt;</span></span>
+
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">Output</span><span class="token punctuation">(</span><span class="token keyword">const</span> list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    ostream_iterator<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">out_iter</span><span class="token punctuation">(</span>cout<span class="token punctuation">,</span><span class="token string">&quot; &quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">copy</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">cbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span><span class="token function">cend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>out_iter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    list<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span>a1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">,</span>a2<span class="token punctuation">,</span>a3<span class="token punctuation">,</span>a4<span class="token punctuation">;</span>
+    <span class="token function">copy</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span><span class="token function">cbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a1<span class="token punctuation">.</span><span class="token function">cend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">inserter</span><span class="token punctuation">(</span>a2<span class="token punctuation">,</span>a2<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">copy</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span><span class="token function">cbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a1<span class="token punctuation">.</span><span class="token function">cend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">front_inserter</span><span class="token punctuation">(</span>a3<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">copy</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span><span class="token function">cbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a1<span class="token punctuation">.</span><span class="token function">cend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">back_inserter</span><span class="token punctuation">(</span>a4<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Output</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Output</span><span class="token punctuation">(</span>a3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Output</span><span class="token punctuation">(</span>a4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x8F93;&#x51FA;</p>
+<blockquote>
+<p>1 2 3 4<br>
+4 3 2 1<br>
+1 2 3 4</p>
+</blockquote>
 
       </div>
       

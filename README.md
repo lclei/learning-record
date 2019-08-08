@@ -21,3 +21,7 @@ I record my code here in learning.
 [lambda](cpp/lambda.md)
 
 [bind](cpp/bind.md)
+
+[inserter](cpp/inserter.md)
+
+[iostreamIterator](cpp/iosreamIterator.md)
