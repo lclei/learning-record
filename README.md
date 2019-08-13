@@ -25,3 +25,5 @@ I record my code here in learning.
 [inserter](cpp/inserter.md)
 
 [iostreamIterator](cpp/iosreamIterator.md)
+
+[smartPointer](cpp/SmartPointer.md)
