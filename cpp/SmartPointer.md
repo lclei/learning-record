@@ -131,3 +131,4 @@ wp.use_count()  //返回指向对象的shared_ptr的数量
 wp.expired() //wp.use_count()为0，返回true
 wp.lock()  //wp.expired()为true，则返回一个共享的shared_ptr，否则返回一个空的shared_ptr
 ```
+weak_ptr的作用就是辅助shared_ptr的，比如解决shared_ptr相互引用的问题而不能释放的问题。

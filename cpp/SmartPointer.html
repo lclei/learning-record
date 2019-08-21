@@ -371,8 +371,11 @@ p2<span class="token punctuation">.</span><span class="token function">reset</sp
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">weak_ptr<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span> <span class="token function">wp</span><span class="token punctuation">(</span>sp<span class="token punctuation">)</span>
 </pre><p>&#x64CD;&#x4F5C;</p>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp">wp<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//&#x7F6E;&#x4E3A;&#x7A7A;</span>
-wp<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;</span>
-</pre>
+wp<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;shared_ptr&#x7684;&#x6570;&#x91CF;</span>
+wp<span class="token punctuation">.</span><span class="token function">expired</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//wp.use_count()&#x4E3A;0&#xFF0C;&#x8FD4;&#x56DE;true</span>
+wp<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//wp.expired()&#x4E3A;true&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x7684;shared_ptr&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;shared_ptr</span>
+</pre><p>weak_ptr&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x8F85;&#x52A9;shared_ptr&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x89E3;&#x51B3;shared_ptr&#x76F8;&#x4E92;&#x5F15;&#x7528;&#x7684;&#x95EE;&#x9898;&#x800C;&#x4E0D;&#x80FD;&#x91CA;&#x653E;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+
       </div>
       
       
